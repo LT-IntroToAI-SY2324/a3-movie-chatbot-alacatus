@@ -126,7 +126,11 @@ def director_by_title(matches: List[str]) -> List[str]:
     Returns:
         a list of 1 string, the director of the movie
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if str(matches[0]) == get_title(movie):
+            results.append(get_director(movie))
+    return results
 
 
 def title_by_director(matches: List[str]) -> List[str]:
@@ -138,7 +142,12 @@ def title_by_director(matches: List[str]) -> List[str]:
     Returns:
         a list of movies titles directed by the passed in director
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if str(matches[0]) == get_director(movie):
+            results.append(get_title(movie))
+    return results
+    
 
 
 def actors_by_title(matches: List[str]) -> List[str]:
@@ -150,20 +159,29 @@ def actors_by_title(matches: List[str]) -> List[str]:
     Returns:
         a list of actors who acted in the passed in title
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if str(matches[0]) == get_title(movie):
+            results.extend(sorted(get_actors(movie)))
+    return results
+    
+
 
 
 def year_by_title(matches: List[str]) -> List[int]:
     """Finds year of passed in movie title
-
     Args:
         matches - a list of 1 string, just the movie title
 
     Returns:
         a list of one item (an int), the year that the movie was made
     """
-    pass
-
+    results = []
+    for movie in movie_db:
+        if str(matches[0]) == get_title(movie):
+            results.append(get_year(movie))
+    return results
+    
 
 def title_by_actor(matches: List[str]) -> List[str]:
     """Finds titles of all movies that the given actor was in
@@ -174,7 +192,13 @@ def title_by_actor(matches: List[str]) -> List[str]:
     Returns:
         a list of movie titles that the actor acted in
     """
-    pass
+    results = []
+    for movie in movie_db:
+        if str(matches[0]) == get_actors(movie):
+            results.extend(get_title(movie))
+    return results
+    
+print(sorted(title_by_actor(["orson welles"])))
 
 
 # dummy argument is ignored and doesn't matter
