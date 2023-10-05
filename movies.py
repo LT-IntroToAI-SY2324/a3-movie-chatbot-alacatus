@@ -423,6 +423,19 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
         ],
     ),
     (
+        "the dark knight",
+        "christopher nolan",
+        2008,
+        [
+            "christian bale",
+            "heath ledger",
+            "gary oldman",
+            "michael caine",
+            "aaron eckhart",
+            "morgan freeman",
+        ]
+    ),
+    (
         "malcolm x",
         "spike lee",
         1992,
